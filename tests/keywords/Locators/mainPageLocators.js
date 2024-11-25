@@ -1,6 +1,5 @@
 const testData = JSON.parse(JSON.stringify(require('../Data/loginData')))
-const {productPage} = require('../Locators/prod');
-const { test, expect } = require('@playwright/test')
+const {expect } = require('@playwright/test')
 
 
 

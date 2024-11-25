@@ -30,7 +30,7 @@ exports.dataKeywords = class dataKeywords {
     }
     async checkSingleProductFlow () {
         await this.successfullLogin()
-        await this.productPage.singleProductsHaveCorrectChildren()
+        await this.checkOutData.singleProductsHaveCorrectChildren()
         await this.checkOutData.fillUserData()
         await this.checkOutData.finishCheckOutProcess();
         
