@@ -1,9 +1,14 @@
 const {mainePageLocators} = require('./Locators/mainPageLocators') 
+const {productPage} = require('./Locators/prod') 
+const {checkoutData} = require('./Locators/checkoutData')
+
 
 exports.dataKeywords = class dataKeywords {
 
     constructor(page) {
         this.mainePageLocator = new mainePageLocators(page)
+        this.productPage = new productPage(page)
+        this.checkOutData = new checkoutData(page)
 
     }
    
@@ -22,6 +27,13 @@ exports.dataKeywords = class dataKeywords {
         await this.mainePageLocator.click()
         await this.mainePageLocator.checkSignInFalse();
 
+    }
+    async checkSingleProductFlow () {
+        await this.successfullLogin()
+        await this.productPage.singleProductsHaveCorrectChildren()
+        await this.checkOutData.fillUserData()
+        await this.checkOutData.finishCheckOutProcess();
+        
     }
 
 

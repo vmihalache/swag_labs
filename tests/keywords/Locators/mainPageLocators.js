@@ -13,9 +13,10 @@ export class mainePageLocators {
         this.password = page.getByTestId('password');
         this.clickButton = page.locator('#login-button');
         this.error = page.getByTestId('error')
+
     }
     async openPage () {
-        await this.page.goto("https://www.saucedemo.com/v1/");
+        await this.page.goto("https://www.saucedemo.com/");
     }
    
     async fillUser () {
@@ -34,7 +35,7 @@ export class mainePageLocators {
         await this.clickButton.click()
     }
     async checkSignIn () {
-        await expect(this.page).toHaveURL('https://www.saucedemo.com/v1/inventory.html');
+        await expect(this.page).toHaveURL('https://www.saucedemo.com/inventory.html',{ timeout: 10_000 });
     }
     async checkSignInFalse () {
         await expect(this.error).toHaveText('Epic sadface: Username and password do not match any user in this service');
